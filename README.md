@@ -55,3 +55,51 @@ sudo systemctl restart arangodb3
 ```
 
 For this to work we need to open port 8529 on our vm(vps provider)
+
+## Usage
+
+ArangoDB can be used as a graph db, a document db or a key-value store db.  
+Can be used as an elastic search replacement(for search)  
+builtin-fox javascript framework for nodejs microservices (with great performance)  
+Good for geo-spacial searches also. Natively supports polygon searches.
+
+```bash
+docker run -e ARANGO_NO_AUTH=1 -p 8529:8529 -d --name test-arangodb arangodb
+```
+
+Visit localhost:8529  
+Create a collection named friends
+
+```js
+insert { name: "Will" } into friends
+// Cmd+Enter to run query
+// Key is like a primary id
+return document("friends/151")
+return document(["friends/514", "friends/122"])
+
+for friend in friends
+    return friend
+
+for friend in friends
+    filter friend.name == "Will"
+    // filter friend.age > 5
+    return friend
+
+// Join
+for friend in friends
+    for state in states
+    filter friend.state == state._key
+    // Return anything we like
+    return {friend, state: state.name}
+```
+
+### Use it as key-value
+
+Create a collection names sessions
+
+```js
+insert {_key: "abcde", logins: 1} into sessions
+
+// Simply fetch it since we have specified the key
+return document("sessions/abcde");
+```
