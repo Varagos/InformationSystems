@@ -103,3 +103,16 @@ insert {_key: "abcde", logins: 1} into sessions
 // Simply fetch it since we have specified the key
 return document("sessions/abcde");
 ```
+
+## Riak KV
+
+Riak KV is a distributed key-value NoSQL database designed to deliver maximum data availability by distributing data across multiple servers. As long as your Riak KV client can reach one Riak server, it should be able to write data.
+
+```bash
+cd riak
+
+docker-compose up -d coordinator
+
+#navigate to localhost:8098/admin/
+# read more https://hub.docker.com/r/basho/riak-kv/
+```
