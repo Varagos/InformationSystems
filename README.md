@@ -113,6 +113,14 @@ cd riak
 
 docker-compose up -d coordinator
 
-#navigate to localhost:8098/admin/
+# navigate to http://localhost:8098/admin/
+# https://docs.riak.com/riak/kv/latest/using/admin/riak-control/index.html
 # read more https://hub.docker.com/r/basho/riak-kv/
 ```
+
+_Chose Riak® KV flexible key-value data model for web scale profile and session management, real-time big data, catalog, content management, customer 360, digital messaging, and more use cases._  
+[Riak KV Tour](https://riak.com/products/riak-kv/resiliency/index.html?p=10906.html)
+
+## YCSB
+
+https://github.com/brianfrankcooper/YCSB
