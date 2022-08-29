@@ -70,3 +70,19 @@ print(fetchedBook.encoded_data)
 # Deserialized
 # fetchedBook.data
 fetchedBook.delete()
+
+
+print("Testing ycsb bucket")
+myBucket = myClient.bucket('ycsb')
+
+val1 = 1
+key1 = myBucket.new('one', data=val1)
+key1.store()
+
+fetched1 = myBucket.get('one')
+
+print (fetched1.data)
+assert val1 == fetched1.data
+
+# Deleting Objects From Riak
+fetched1.delete()

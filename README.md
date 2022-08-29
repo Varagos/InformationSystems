@@ -104,6 +104,12 @@ insert {_key: "abcde", logins: 1} into sessions
 return document("sessions/abcde");
 ```
 
+## Usage with arangosh(shell client)
+
+https://www.arangodb.com/docs/stable/programs-arangosh.html
+
+python2.7 ./bin/ycsb load arangodb -s -P workloads/workloada -p arangodb.ip="localhost" -p arangodb.port=8529
+
 ## Riak KV
 
 Riak KV is a distributed key-value NoSQL database designed to deliver maximum data availability by distributing data across multiple servers. As long as your Riak KV client can reach one Riak server, it should be able to write data.
