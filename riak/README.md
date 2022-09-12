@@ -35,6 +35,7 @@ vi /etc/riak/riak.conf
 # Close container shell
 docker restart riak
 
+# These may take some seconds
 docker exec -it riak sh
 riak-admin bucket-type create ycsb '{"props":{"allow_mult":"false"}}'
 riak-admin bucket-type activate ycsb
