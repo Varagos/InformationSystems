@@ -1,7 +1,8 @@
 Now that you have created the virtual environment, you will need to activate it before you can use it in your project.
 
 ```bash
-sudo apt-get install python-dev libffi-dev libssl-dev
+# Make sure you have python installed
+sudo apt-get install libffi-dev libssl-dev
 
 # Riak suggests using python2.7
 virtualenv -p /usr/bin/python2.7 venv

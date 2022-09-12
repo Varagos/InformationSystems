@@ -9,3 +9,48 @@ The unique thing about Riak is not the typical master slave model. Riak stores k
 ```
 riak admin bucket-type create maps '{"props": {"datatype": "map"}}'
 ```
+
+# Riak -YCSB
+
+```bash
+# Dependencies java1.6+., maven
+# Skip these steps if you already have java & maven
+sudo apt update
+
+sudo apt install default-jre
+java -version
+
+sudo apt install default-jdk
+javac -version
+
+sudo apt install maven
+
+# Bootstrap Riak-kv simple node
+docker run --name=riak -d -p 8087:8087 -p 8098:8098 basho/riak-kv
+
+docker exec -it riak sh
+vi /etc/riak/riak.conf
+# Set
+# storage_backend = leveldb
+# Close container shell
+docker restart riak
+
+docker exec -it riak sh
+riak-admin bucket-type create ycsb '{"props":{"allow_mult":"false"}}'
+riak-admin bucket-type activate ycsb
+
+# Load and run a YCSB workload using the Riak client:
+./bin/ycsb load riak -P workloads/workloada
+./bin/ycsb run riak -P workloads/workloada
+
+# Riak listens on 8098 for HTTP and 8087-Protocol Buffer
+# The default protocol buffer riak port will be used (8087)
+# The http port (8098) is used for dashboard & commands
+
+```
+
+Refs
+
+- [Riak docker-cluster-config instructions](https://riak.com/posts/technical/running-riak-in-docker/index.html?p=12629.html)
+- [Riak advanced config](https://riak.com/posts/technical/running-riak-in-docker/index.html?p=12629.html#:~:text=Advanced%20Configuration)
+- [Riak ycsb binding instructions](https://github.com/basho-labs/YCSB/tree/master/riak)

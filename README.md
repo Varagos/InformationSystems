@@ -129,4 +129,13 @@ _Chose Riak® KV flexible key-value data model for web scale profile and session
 
 ## YCSB
 
+Follow official instructions to install the Yahoo Cloud Serving Benchmark  
 https://github.com/brianfrankcooper/YCSB
+
+```bash
+cd ycsb/lib
+
+# Add logging lib
+curl -L -O 'https://search.maven.org/remotecontent?filepath=org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar'
+
+```
