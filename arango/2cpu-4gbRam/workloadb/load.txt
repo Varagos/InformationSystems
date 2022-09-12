@@ -1,0 +1,25 @@
+2022-09-12 21:05:54:839 1 sec: 1000 operations; 955.11 current ops/sec; [CLEANUP: Count=1, Max=1267, Min=1267, Avg=1267, 90=1267, 99=1267, 99.9=1267, 99.99=1267] [INSERT: Count=1000, Max=18927, Min=419, Avg=865.88, 90=1038, 99=1861, 99.9=11391, 99.99=18927] 
+[OVERALL], RunTime(ms), 1047
+[OVERALL], Throughput(ops/sec), 955.1098376313277
+[TOTAL_GCS_PS_Scavenge], Count, 1
+[TOTAL_GC_TIME_PS_Scavenge], Time(ms), 6
+[TOTAL_GC_TIME_%_PS_Scavenge], Time(%), 0.5730659025787965
+[TOTAL_GCS_PS_MarkSweep], Count, 0
+[TOTAL_GC_TIME_PS_MarkSweep], Time(ms), 0
+[TOTAL_GC_TIME_%_PS_MarkSweep], Time(%), 0.0
+[TOTAL_GCs], Count, 1
+[TOTAL_GC_TIME], Time(ms), 6
+[TOTAL_GC_TIME_%], Time(%), 0.5730659025787965
+[CLEANUP], Operations, 1
+[CLEANUP], AverageLatency(us), 1267.0
+[CLEANUP], MinLatency(us), 1267
+[CLEANUP], MaxLatency(us), 1267
+[CLEANUP], 95thPercentileLatency(us), 1267
+[CLEANUP], 99thPercentileLatency(us), 1267
+[INSERT], Operations, 1000
+[INSERT], AverageLatency(us), 865.881
+[INSERT], MinLatency(us), 419
+[INSERT], MaxLatency(us), 18927
+[INSERT], 95thPercentileLatency(us), 1230
+[INSERT], 99thPercentileLatency(us), 1861
+[INSERT], Return=OK, 1000

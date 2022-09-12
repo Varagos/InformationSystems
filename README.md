@@ -139,3 +139,9 @@ cd ycsb/lib
 curl -L -O 'https://search.maven.org/remotecontent?filepath=org/slf4j/slf4j-simple/1.7.25/slf4j-simple-1.7.25.jar'
 
 ```
+
+Workloads info
+https://github.com/brianfrankcooper/YCSB/wiki/Core-Workloads
+
+Properties
+https://github.com/brianfrankcooper/YCSB/issues/1206
