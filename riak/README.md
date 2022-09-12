@@ -48,6 +48,25 @@ riak-admin bucket-type activate ycsb
 # The default protocol buffer riak port will be used (8087)
 # The http port (8098) is used for dashboard & commands
 
+# to use params
+./bin/ycsb load riak -P workloads/workloada -P ./path/to/propsFile
+
+./bin/ycsb run riak -P workloads/workloada -P ./path/to/propsFile
+
+```
+
+## Riaks props file
+
+```text
+riak.hosts=127.0.0.1
+riak.port=8098
+riak.r_val=1
+riak.w_val=1
+riak.read_retry_count=2
+riak.wait_time_before_retry=1
+riak.bucket_type=ycsb
+riak.strong_consistency=false
+riak.debug=true
 ```
 
 Refs
