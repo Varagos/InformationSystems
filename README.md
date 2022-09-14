@@ -145,3 +145,5 @@ https://github.com/brianfrankcooper/YCSB/wiki/Core-Workloads
 
 Properties
 https://github.com/brianfrankcooper/YCSB/issues/1206
+
+-_target_ : the target number of operations per second. By default, the YCSB Client will try to do as many operations as it can. For example, if each operation takes 100 milliseconds on average, the Client will do about 10 operations per second per worker thread. However, you can throttle the target number of operations per second. For example, to generate a latency versus throughput curve, you can try different target throughputs, and measure the resulting latency for each.
