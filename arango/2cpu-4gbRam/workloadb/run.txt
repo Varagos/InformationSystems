@@ -1,3 +1,5 @@
+500000 inserted documents, (half a million)
+
 2022-09-14 20:39:08:020 20 sec: 20000 operations; 605.47 current ops/sec; [READ: Count=145, Max=1755, Min=538, Avg=858.46, 90=1060, 99=1664, 99.9=1755, 99.99=1755] [CLEANUP: Count=64, Max=974, Min=1, Avg=17.94, 90=3, 99=16, 99.9=974, 99.99=974] [UPDATE: Count=10, Max=1314, Min=859, Avg=1063.4, 90=1300, 99=1314, 99.9=1314, 99.99=1314] 
 [OVERALL], RunTime(ms), 20257
 [OVERALL], Throughput(ops/sec), 987.3130275953991
@@ -349,7 +351,100 @@
 [UPDATE], Return=OK, 2999
 
 -------------------------------------------------------------------------------
+threads=512
+
+2022-09-14 20:52:04:566 33 sec: 500000 operations; 18130.27 current ops/sec; [READ: Count=57632, Max=54527, Min=314, Avg=22981.28, 90=32207, 99=37855, 99.9=46623, 99.99=49535] [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=�, 90=0, 99=0, 99.9=0, 99.99=0] [CLEANUP: Count=494, Max=2939, Min=0, Avg=6.85, 90=2, 99=9, 99.9=2939, 99.99=2939] [UPDATE: Count=3002, Max=50719, Min=542, Avg=22770.41, 90=32015, 99=37183, 99.9=44319, 99.99=50719] 
+[OVERALL], RunTime(ms), 33348
+[OVERALL], Throughput(ops/sec), 14993.402902722803
+[TOTAL_GCS_PS_Scavenge], Count, 47
+[TOTAL_GC_TIME_PS_Scavenge], Time(ms), 261
+[TOTAL_GC_TIME_%_PS_Scavenge], Time(%), 0.7826556315221302
+[TOTAL_GCS_PS_MarkSweep], Count, 0
+[TOTAL_GC_TIME_PS_MarkSweep], Time(ms), 0
+[TOTAL_GC_TIME_%_PS_MarkSweep], Time(%), 0.0
+[TOTAL_GCs], Count, 47
+[TOTAL_GC_TIME], Time(ms), 261
+[TOTAL_GC_TIME_%], Time(%), 0.7826556315221302
+[READ], Operations, 474895
+[READ], AverageLatency(us), 32810.3234399183
+[READ], MinLatency(us), 314
+[READ], MaxLatency(us), 1812479
+[READ], 95thPercentileLatency(us), 45759
+[READ], 99thPercentileLatency(us), 62751
+[READ], Return=OK, 474895
+[UPDATE-FAILED], Operations, 6
+[UPDATE-FAILED], AverageLatency(us), 40634.666666666664
+[UPDATE-FAILED], MinLatency(us), 30768
+[UPDATE-FAILED], MaxLatency(us), 54815
+[UPDATE-FAILED], 95thPercentileLatency(us), 54815
+[UPDATE-FAILED], 99thPercentileLatency(us), 54815
+[CLEANUP], Operations, 512
+[CLEANUP], AverageLatency(us), 6.75
+[CLEANUP], MinLatency(us), 0
+[CLEANUP], MaxLatency(us), 2939
+[CLEANUP], 95thPercentileLatency(us), 3
+[CLEANUP], 99thPercentileLatency(us), 11
+[UPDATE], Operations, 25099
+[UPDATE], AverageLatency(us), 34461.477070799636
+[UPDATE], MinLatency(us), 542
+[UPDATE], MaxLatency(us), 1755135
+[UPDATE], 95thPercentileLatency(us), 46559
+[UPDATE], 99thPercentileLatency(us), 88703
+[UPDATE], Return=OK, 25099
+[UPDATE], Return=ERROR, 6
+
+-------------------------------------------------------------------------------
+2000 threads
+
+2022-09-14 20:55:08:308 29 sec: 500000 operations; 17601.58 current ops/sec; [READ: Count=154577, Max=204159, Min=302, Avg=83976.36, 90=131711, 99=158207, 99.9=186623, 99.99=199807] [UPDATE-FAILED: Count=6, Max=105663, Min=30544, Avg=76124, 90=103999, 99=105663, 99.9=105663, 99.99=105663] [CLEANUP: Count=1960, Max=422, Min=0, Avg=0.59, 90=1, 99=4, 99.9=38, 99.99=422] [UPDATE: Count=8064, Max=198143, Min=811, Avg=84674.59, 90=132735, 99=158719, 99.9=183167, 99.99=195071] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=�, 90=0, 99=0, 99.9=0, 99.99=0] 
+[OVERALL], RunTime(ms), 29231
+[OVERALL], Throughput(ops/sec), 17105.1281174096
+[TOTAL_GCS_PS_Scavenge], Count, 34
+[TOTAL_GC_TIME_PS_Scavenge], Time(ms), 619
+[TOTAL_GC_TIME_%_PS_Scavenge], Time(%), 2.1176148609353085
+[TOTAL_GCS_PS_MarkSweep], Count, 0
+[TOTAL_GC_TIME_PS_MarkSweep], Time(ms), 0
+[TOTAL_GC_TIME_%_PS_MarkSweep], Time(%), 0.0
+[TOTAL_GCs], Count, 34
+[TOTAL_GC_TIME], Time(ms), 619
+[TOTAL_GC_TIME_%], Time(%), 2.1176148609353085
+[READ], Operations, 475035
+[READ], AverageLatency(us), 99512.68329491511
+[READ], MinLatency(us), 302
+[READ], MaxLatency(us), 8073215
+[READ], 95thPercentileLatency(us), 149759
+[READ], 99thPercentileLatency(us), 367871
+[READ], Return=OK, 475035
+[READ], Return=ERROR, 49
+[UPDATE-FAILED], Operations, 28
+[UPDATE-FAILED], AverageLatency(us), 313244.28571428574
+[UPDATE-FAILED], MinLatency(us), 30544
+[UPDATE-FAILED], MaxLatency(us), 3723263
+[UPDATE-FAILED], 95thPercentileLatency(us), 1861631
+[UPDATE-FAILED], 99thPercentileLatency(us), 3723263
+[CLEANUP], Operations, 2000
+[CLEANUP], AverageLatency(us), 0.6935
+[CLEANUP], MinLatency(us), 0
+[CLEANUP], MaxLatency(us), 422
+[CLEANUP], 95thPercentileLatency(us), 3
+[CLEANUP], 99thPercentileLatency(us), 5
+[UPDATE], Operations, 24888
+[UPDATE], AverageLatency(us), 100355.75739312118
+[UPDATE], MinLatency(us), 752
+[UPDATE], MaxLatency(us), 4179967
+[UPDATE], 95thPercentileLatency(us), 152703
+[UPDATE], 99thPercentileLatency(us), 400895
+[UPDATE], Return=OK, 24888
+[UPDATE], Return=ERROR, 28
+[READ-FAILED], Operations, 49
+[READ-FAILED], AverageLatency(us), 2949813.714285714
+[READ-FAILED], MinLatency(us), 31936
+[READ-FAILED], MaxLatency(us), 4026367
+[READ-FAILED], 95thPercentileLatency(us), 4018175
+[READ-FAILED], 99thPercentileLatency(us), 4026367
+
 
 -------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------
+Stress testing,
+5 million inserted records
