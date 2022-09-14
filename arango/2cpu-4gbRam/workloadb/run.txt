@@ -351,7 +351,7 @@
 [UPDATE], Return=OK, 2999
 
 -------------------------------------------------------------------------------
-threads=512
+threads=512, target was 20000
 
 2022-09-14 20:52:04:566 33 sec: 500000 operations; 18130.27 current ops/sec; [READ: Count=57632, Max=54527, Min=314, Avg=22981.28, 90=32207, 99=37855, 99.9=46623, 99.99=49535] [UPDATE-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=�, 90=0, 99=0, 99.9=0, 99.99=0] [CLEANUP: Count=494, Max=2939, Min=0, Avg=6.85, 90=2, 99=9, 99.9=2939, 99.99=2939] [UPDATE: Count=3002, Max=50719, Min=542, Avg=22770.41, 90=32015, 99=37183, 99.9=44319, 99.99=50719] 
 [OVERALL], RunTime(ms), 33348
@@ -394,7 +394,7 @@ threads=512
 [UPDATE], Return=ERROR, 6
 
 -------------------------------------------------------------------------------
-2000 threads
+2000 threads, stopped using target
 
 2022-09-14 20:55:08:308 29 sec: 500000 operations; 17601.58 current ops/sec; [READ: Count=154577, Max=204159, Min=302, Avg=83976.36, 90=131711, 99=158207, 99.9=186623, 99.99=199807] [UPDATE-FAILED: Count=6, Max=105663, Min=30544, Avg=76124, 90=103999, 99=105663, 99.9=105663, 99.99=105663] [CLEANUP: Count=1960, Max=422, Min=0, Avg=0.59, 90=1, 99=4, 99.9=38, 99.99=422] [UPDATE: Count=8064, Max=198143, Min=811, Avg=84674.59, 90=132735, 99=158719, 99.9=183167, 99.99=195071] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=�, 90=0, 99=0, 99.9=0, 99.99=0] 
 [OVERALL], RunTime(ms), 29231
@@ -448,3 +448,52 @@ threads=512
 
 Stress testing,
 5 million inserted records
+4000 threads, half a million operations
+(without-target)
+
+2022-09-14 21:16:24:845 37 sec: 500000 operations; 20049 current ops/sec; [READ: Count=135241, Max=15237119, Min=288, Avg=87870.44, 90=106303, 99=221951, 99.9=262399, 99.99=7421951] [UPDATE-FAILED: Count=2, Max=104895, Min=102144, Avg=103520, 90=104895, 99=104895, 99.9=104895, 99.99=104895] [CLEANUP: Count=2297, Max=263, Min=0, Avg=0.14, 90=0, 99=0, 99.9=8, 99.99=263] [UPDATE: Count=7096, Max=7426047, Min=445, Avg=88033.01, 90=106047, 99=219647, 99.9=260479, 99.99=7426047] [READ-FAILED: Count=0, Max=0, Min=9223372036854775807, Avg=�, 90=0, 99=0, 99.9=0, 99.99=0] 
+[OVERALL], RunTime(ms), 37089
+[OVERALL], Throughput(ops/sec), 13481.086036291084
+[TOTAL_GCS_PS_Scavenge], Count, 34
+[TOTAL_GC_TIME_PS_Scavenge], Time(ms), 833
+[TOTAL_GC_TIME_%_PS_Scavenge], Time(%), 2.2459489336460945
+[TOTAL_GCS_PS_MarkSweep], Count, 2
+[TOTAL_GC_TIME_PS_MarkSweep], Time(ms), 590
+[TOTAL_GC_TIME_%_PS_MarkSweep], Time(%), 1.5907681522823478
+[TOTAL_GCs], Count, 36
+[TOTAL_GC_TIME], Time(ms), 1423
+[TOTAL_GC_TIME_%], Time(%), 3.8367170859284427
+[READ], Operations, 474723
+[READ], AverageLatency(us), 114537.36048390325
+[READ], MinLatency(us), 288
+[READ], MaxLatency(us), 15237119
+[READ], 95thPercentileLatency(us), 184575
+[READ], 99thPercentileLatency(us), 618495
+[READ], Return=OK, 474723
+[READ], Return=ERROR, 371
+[UPDATE-FAILED], Operations, 28
+[UPDATE-FAILED], AverageLatency(us), 306796.3214285714
+[UPDATE-FAILED], MinLatency(us), 130
+[UPDATE-FAILED], MaxLatency(us), 2902015
+[UPDATE-FAILED], 95thPercentileLatency(us), 2113535
+[UPDATE-FAILED], 99thPercentileLatency(us), 2902015
+[CLEANUP], Operations, 4000
+[CLEANUP], AverageLatency(us), 4.76425
+[CLEANUP], MinLatency(us), 0
+[CLEANUP], MaxLatency(us), 17631
+[CLEANUP], 95thPercentileLatency(us), 1
+[CLEANUP], 99thPercentileLatency(us), 3
+[UPDATE], Operations, 24878
+[UPDATE], AverageLatency(us), 122119.02130396334
+[UPDATE], MinLatency(us), 445
+[UPDATE], MaxLatency(us), 9994239
+[UPDATE], 95thPercentileLatency(us), 186495
+[UPDATE], 99thPercentileLatency(us), 649727
+[UPDATE], Return=OK, 24878
+[UPDATE], Return=ERROR, 28
+[READ-FAILED], Operations, 371
+[READ-FAILED], AverageLatency(us), 691487.525606469
+[READ-FAILED], MinLatency(us), 94
+[READ-FAILED], MaxLatency(us), 4808703
+[READ-FAILED], 95thPercentileLatency(us), 2875391
+[READ-FAILED], 99thPercentileLatency(us), 4804607
