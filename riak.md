@@ -32,7 +32,7 @@ docker exec -it riak sh
 vi /etc/riak/riak.conf
 # Set
 # storage_backend = leveldb
-# Close container shell
+# Close container shell (Ctrl+D)
 docker restart riak
 
 # These may take some seconds
@@ -52,6 +52,10 @@ riak-admin bucket-type activate ycsb
 ./bin/ycsb load riak -P workloads/workloada -p recordcount=500000 -threads 16 -P ./path/to/propsFile
 
 ./bin/ycsb run riak -P workloads/workloada -p operationcount=20000 -threads 64 -p target=2000 -P ./path/to/propsFile
+
+# .e.g
+./bin/ycsb run riak -P workloads/workloada -p operationcount=80000 -threads 512 -P ~/riak.properties
+
 
 ```
 
