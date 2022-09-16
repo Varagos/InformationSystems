@@ -207,3 +207,51 @@ ram 3.2 out of 8 gb used
 [UPDATE], 95thPercentileLatency(us), 197503
 [UPDATE], 99thPercentileLatency(us), 262143
 [UPDATE], Return=OK, 30308
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------
+
+Sum up
+
+[OVERALL], Throughput(ops/sec), 956.846234810066
+[READ], AverageLatency(us), 1966.6464777489523
+[UPDATE], AverageLatency(us), 2686.297554620164
+
+[OVERALL], Throughput(ops/sec), 1822.3234624145787
+[READ], AverageLatency(us), 4011.6387398131583
+[UPDATE], AverageLatency(us), 5497.281847454216
+
+[OVERALL], Throughput(ops/sec), 2686.366689053056
+[READ], AverageLatency(us), 8564.588887778555
+[UPDATE], AverageLatency(us), 12037.572200540379
+
+[OVERALL], Throughput(ops/sec), 2965.159377316531
+[READ], AverageLatency(us), 30555.00269541779
+[UPDATE], AverageLatency(us), 40240.164179104475
+
+[OVERALL], Throughput(ops/sec), 3381.6152849010878
+[READ], AverageLatency(us), 29850.95856158629
+[UPDATE], AverageLatency(us), 37114.55430649694
+
+[OVERALL], Throughput(ops/sec), 3258.921297050676
+[READ], AverageLatency(us), 61399.62080695137
+[UPDATE], AverageLatency(us), 64592.428104790815
+
+
+(956, 2.686)
+(1822, 5.497)
+(2686, 12.037)
+(2965, 40.240)
+(3381, 37.114)
+(3258, 64.592)

@@ -52,20 +52,15 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
 
 \section{Σκοπός της εργασίας}
 
-\subsection{Maintaining the Integrity of the Specifications}
+Σε αυτή την εργασία θα γίνει σύγκριση όσο αφορά την φόρτωση δεδομένων, select queries, range queries,
+update queries, delete queries, insert queries, των δύο key-value stores Riak και ArangoDB. Θα γίνει
+σύγκριση των δύο key-value stores σε διάφορες περιπτώσεις όπως αναφέρεται παρακάτω. Στην συγκεκριμένη εργασία θα
+χρησιμοποιηθεί το γνωστό tool YCSB benchmark.
+% Σε αυτή την εργασία θα γίνει σύγκριση όσον αφορά την φόρτωση δεδομένων, select queries, range queries, update queries και κλιμακωσιμότητα σε μεγάλου όγκου δεδομένα ανάμεσα σε δύο από τις γνωστές NoSQL databases: Riak, Arangodb. Θα χρησιμοποιηθεί το γνωστό YCSB benchmark.
 
-The IEEEtran class file is used to format your paper and style the text. All margins, 
-column widths, line spaces, and text fonts are prescribed; please do not 
-alter them. You may note peculiarities. For example, the head margin
-measures proportionately more than is customary. This measurement 
-and others are deliberate, using specifications that anticipate your paper 
-as one part of the entire proceedings, and not as an independent document. 
-Please do not revise any of the current designations.
 
 \section{Περιγραφή βημάτων για το στήσιμο του συστήματος και των πειραμάτων}
 Before you begin to format your paper, first write and save the content as a 
@@ -78,6 +73,37 @@ formatted and styled. Do not number text heads---{\LaTeX} will do that
 for you.
 
 \section{Περιγραφή της υποδομής και του software που χρησιμοποίηθηκε}
+
+\subsection{Okeanos} 
+
+\subsection{Yahoo Cloud Service Benchmark}
+
+\subsection{ArangoDB}
+Η ArangoDB είναι μια ανοιχτού κώδικά βάση δεδομένων NoSQL. Χαρακτηριστικό της είναι ο ευέλικτος τρόπος μοντελοποίσης των δεδομένων σε documents ή γράφους. Έχει σχεδιαστεί ως «βάση δεδομένων γενικού σκοπού», προσφέροντας όλες τις λειτουργίες που απαιτούνται συνήθως για τις σύγχρονες εφαρμογές Ιστού. Υποστηρίζει μοντέλα δεδομένων γραφημάτων, εγγράφων και κλειδιών-τιμών που επιτρέπουν στους χρήστες να συνδυάζουν ελεύθερα όλα τα μοντέλα δεδομένων σε ένα μόνο query. Καθώς οι εφαρμογές γίνονται όλο και πιο περίπλοκες, συχνά χρειαζόμαστε περισσότερες από μία βάσεις δεδομένων NoSQL. Η χρήση μιας βάσης δεδομένων πολλαπλών μοντέλων μπορεί να απλοποιήσει την αρχιτεκτονική μας συνδυάζοντας πολλούς τύπους NoSQL σε μια ενιαία υποδομή.
+
+Σύμφωνα με αυτό, θα μπορούσε κανείς, για παράδειγμα, να χρησιμοποιήσει μια σχεσιακή βάση δεδομένων για να διατηρήσει δομημένα, πινακοποιημένα δεδομένα. ένα χώρο αποθήκευσης εγγράφων για μη δομημένα δεδομένα που μοιάζουν με αντικείμενα. ένα κατάστημα κλειδιού/τιμής για έναν πίνακα κατακερματισμού. και μια βάση δεδομένων γραφημάτων για ιδιαίτερα συνδεδεμένα αναφορικά δεδομένα.
+
+Ωστόσο, η παραδοσιακή εφαρμογή αυτής της προσέγγισης θα οδηγήσει κάποιον στη χρήση πολλαπλών βάσεων δεδομένων στο ίδιο project. Μπορεί να οδηγήσει σε κάποιες λειτουργικές τριβές (πιο περίπλοκη ανάπτυξη, πιο συχνές αναβαθμίσεις) καθώς και σε ζητήμα τα συνέπειας και συντήρησης των ίδων δεδομένων πολλαπλές φορές.
+
+Ποια ειναι τα κύριεα χαρακτηριστικά της ArangoDB;
+\begin{itemize}
+    \item 
+    Δυνατότητα για χρησιμοποίηση διαφορετικών τεχνολογιών αποθήκευσης, που ταιριάζουν καλύτερα με τον τρόπο που χρησιμοποιούνται τα δεδομένα από διαφορετικά στοιχεία της εφαρμογής.
+    
+    \item 
+    Προσφέρεται πρόσβαση σε οποιαδήποτε δεδομένα (ανεξάρτητα από το μοντέλο τους) χρησιμοποιώντας μια ενιαία γλώσσα ερωτημάτων, η οποία είναι αρκετά παρόμοια με μια τυπική γλώσσα ερωτήματος SQL με κάποιες μικρές διαφορές.
+
+    \item 
+    Χρησιμοποιεί δυαδικό JSON για την αποθήκευση δεδομένων. Είναι λιτό, αυτόνομο, βελτιώνει τις απαιτήσεις από μνήμη και καλύπτει όλους τους JSON τύπους δεδομένων συν ημερομηνίες, δυαδικά δεδομένα, ακέραιους αριθμούς, καθώς και αυθαίρετους αριθμούς ακριβείας.
+\end{itemize}
+
+ArangoDB: A distributed open-source database with a flexible data model for documents, graphs, and key-values. A distributed free and open-source database with a flexible data model for documents, graphs, and key-values. Build high performance applications using a convenient SQL-like query language or JavaScript extensions;
+
+\subsection{Riak KV}
+ A distributed, decentralized data storage system. Riak is a distributed database designed to deliver maximum data availability by distributing data across multiple servers. As long as your client can reach one Riak server, it should be able to write data. In most failure scenarios, the data you want to read should be available, although it may not be the most up-to-date version of that data.
+
+\subsection{Docker}
+
 \section{περιγραφή των αποτελεσμάτων και των συμπερασμάτων της εργασίας}
 
 \subsection{Workload a}    
@@ -91,12 +117,12 @@ in order to reconcile what the final record should look like, but not all do.
 % Fist diagram Workload a - run operations
     \begin{tikzpicture}
 \begin{axis}[
-    xlabel=Throughtput,
-    ylabel=Latency,
+    xlabel=Throughtput ($10^{3}$ ops/sec),
+    ylabel=Latency (ms),
     xmin=0, xmax=15000,
     ymin=0, ymax=150,
-    xtick={1000,5000,10000},
-    xticklabels={1000,5000,10000},   % <---
+    xtick={1000, 2000,4000, 6000, 8000,10000,12000, 14000},
+    xticklabels={1, 2, 4, 6, 8, 10, 12, 14},
     ytick={0,20,...,160}
             ]
 \addplot[smooth,color=green,mark=*] plot coordinates {
@@ -108,9 +134,10 @@ in order to reconcile what the final record should look like, but not all do.
     (8127,0.45)
     (10145,0.8)
     (12062, 2.9)
-    (12062, 2.9)
+    (11995, 9.961)
     (12592, 18)
-    (12700, 70)
+    (12903, 44.884)
+    (12581, 70)
 };
 \addlegendentry{ArangoDB}
 
@@ -133,7 +160,7 @@ in order to reconcile what the final record should look like, but not all do.
     \begin{tikzpicture}
 \begin{axis}[
     xlabel=Throughtput ($10^{3}$ ops/sec),
-    ylabel=Latency,
+    ylabel=Latency (ms),
     xmin=0, xmax=15000,
     ymin=0, ymax=150,
     xtick={1000, 2000,4000, 6000, 8000,10000,12000, 14000},
@@ -176,12 +203,12 @@ in order to reconcile what the final record should look like, but not all do.
 %  Read s
 \begin{tikzpicture}
     \begin{axis}[
-        xlabel=Throughtput,
-        ylabel=Latency,
+        xlabel=Throughtput ($10^{3}$ ops/sec),
+        ylabel=Latency (ms),
         xmin=0, xmax=15000,
         ymin=0, ymax=150,
-        xtick={1000,5000,10000},
-        xticklabels={1000,5000,10000},   % <---
+        xtick={1000, 2000,4000, 6000, 8000,10000,12000, 14000},
+        xticklabels={1, 2, 4, 6, 8, 10, 12, 14},
         ytick={0,10,...,100}
                 ]
     \addplot[smooth,mark=*,blue] plot coordinates {
@@ -221,12 +248,12 @@ in order to reconcile what the final record should look like, but not all do.
 %  Read s
 \begin{tikzpicture}
     \begin{axis}[
-        xlabel=Throughtput,
-        ylabel=Latency,
+        xlabel=Throughtput ($10^{3}$ ops/sec),
+        ylabel=Latency (ms),
         xmin=0, xmax=15000,
         ymin=0, ymax=150,
-        xtick={1000,5000,10000},
-        xticklabels={1000,5000,10000},   % <---
+        xtick={1000, 2000,4000, 6000, 8000,10000,12000, 14000},
+        xticklabels={1, 2, 4, 6, 8, 10, 12, 14},
         ytick={0,10,...,100}
                 ]
     \addplot[smooth,mark=*,blue] plot coordinates {
@@ -259,6 +286,90 @@ in order to reconcile what the final record should look like, but not all do.
     \addlegendentry{Riak}
     \end{axis}
     \node[above,font=\large\bfseries] at (current bounding box.north) {Write};
+    
+        \end{tikzpicture}
+
+\subsection{Διπλασιάζοντας του πόρους της Riak}
+
+\subsubsection{Workload a - Updates}
+Από το worklfow a θα συγκρίνουμε τις επιδόσεις στα reads, μιας και τα reads θα εξετασθούν από το heavy-read workflow b.
+
+%Fifth Diagram Workload a Update
+%  Writes
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel=Throughtput ($10^{3}$ ops/sec),
+        ylabel=Latency (ms),
+        xmin=0, xmax=5000,
+        ymin=0, ymax=150,
+        xtick={1000,2000,3000, 4000},
+        xticklabels={1,2,3, 4},   % <---
+        ytick={0,20,...,150}
+                ]
+    \addplot[smooth,mark=*,blue] plot coordinates {
+        (149, 4.867)
+        (969, 20.091)
+        (1378,19.8836)
+        (1476, 40.452)
+        (1526,92.816)
+
+    };
+    \addlegendentry{2CPU, 4GB RAM}
+    
+    \addplot[smooth,color=red,mark=x]
+        plot coordinates {
+            (956, 2.686)
+            (1822, 5.497)
+            (2686, 12.037)
+            (2965, 40.240)
+            (3381, 37.114)
+            (3258, 64.592)
+        };
+    \addlegendentry{4CPU, 8GB RAM}
+    \end{axis}
+    \node[above,font=\large\bfseries] at (current bounding box.north) {Writes of workflow a};
+    
+        \end{tikzpicture}
+
+
+\subsubsection{Workload b - Reads}
+%Sixth Diagram Workload b Reads
+%  Read s
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel=Throughtput ($10^{3}$ ops/sec),
+        ylabel=Latency (ms),
+        xmin=0, xmax=5000,
+        ymin=0, ymax=150,
+        xtick={1000, 2000, 3000, 4000, 5000},
+        xticklabels={1,2, 3, 4, 5 },   % <---
+        ytick={0,10,...,100}
+                ]
+    \addplot[smooth,mark=*,blue] plot coordinates {
+        (466.8,1.69)
+        (950.9,4.7)
+        (1821,10.98)
+        (1844,41.29)
+        (1961,56.31)
+        (2073,111.9)
+
+
+    };
+    \addlegendentry{2CPU, 4GB RAM}
+    
+    \addplot[smooth,color=red,mark=x]
+        plot coordinates {
+            (946.7,1.5)
+            (1849,3.43)
+            (2679,5.49)
+            (3769,5.6)
+            (4334,26.4)
+            (4380,41.48)
+            
+        };
+    \addlegendentry{4CPU, 8GB RAM}
+    \end{axis}
+    \node[above,font=\large\bfseries] at (current bounding box.north) {Heavy Read - Workload B};
     
         \end{tikzpicture}
 

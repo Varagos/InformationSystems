@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1663339394 "/home/markos/code/ece-ntua/InformationSystems/report/report.tex" "report.pdf" "report" 1663339396
+["pdflatex"] 1663343935 "/home/markos/code/ece-ntua/InformationSystems/report/report.tex" "report.pdf" "report" 1663343937
   "/etc/texmf/web2c/texmf.cnf" 1663326049 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/markos/code/ece-ntua/InformationSystems/report/report.tex" 1663339394 19366 8d48e01ae5615bccc2c9ef158b531d27 ""
+  "/home/markos/code/ece-ntua/InformationSystems/report/report.tex" 1663343935 26968 c32f27f1d92e41d2e6049a83eea4894e ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -40,6 +40,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb" 1248133631 32915 7bf7720c61a5b3a7ff25b0964421c9b6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/grmn1000.pfb" 1213382506 82167 345ce464dc0ff0650f62e82447186d00 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/cbfonts/grmn1095.pfb" 1213382506 83085 ea64199df2f595815c19ff6c52e02e8e ""
@@ -205,8 +206,8 @@
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1663326109 2803185 a4ed39e9029f7e04eab876e7d57489e8 ""
   "IEEEtran.cls" 1440629324 288304 b67b6fc6c2abb39f9b461923f5199343 ""
   "fig1.png" 1571296372 4535 3b4c70b1b9361fad686e8d234c8fe506 ""
-  "report.aux" 1663339396 4120 ea76bac31876f37e3a55aa1b66429f35 "pdflatex"
-  "report.tex" 1663339394 19366 8d48e01ae5615bccc2c9ef158b531d27 ""
+  "report.aux" 1663343937 5199 bca52a76cdb34cb650a611a3a7873921 "pdflatex"
+  "report.tex" 1663343935 26968 c32f27f1d92e41d2e6049a83eea4894e ""
   (generated)
   "report.aux"
   "report.log"
