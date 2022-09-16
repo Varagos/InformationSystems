@@ -73,6 +73,22 @@ riak.strong_consistency=false
 riak.debug=true
 ```
 
+## Riak delete data
+
+Clear all the data on your test cluster. This essentially means issuing shell commands (assuming your test server is running on the same machine as your test suite). If you're using a Memory backend, this means issuing riak restart between each test. For other backends, you'd have to stop the node and delete the whole data directory and start it again: riak stop && rm -rf <...>/data/\* && riak start
+
+```bash
+docker exec -it riak sh
+riak stop
+# Data directories - https://docs.riak.com/riak/kv/2.1.4/using/cluster-operations/backing-up/#os-specific-directory-locations
+rm -rf 	/var/lib/riak/leveldb
+riak start
+
+# Check file after restart (num of Lines)
+wc -l /var/lib/riak/leveldb
+# Should output 0
+```
+
 Refs
 
 - [Riak docker-cluster-config instructions](https://riak.com/posts/technical/running-riak-in-docker/index.html?p=12629.html)
