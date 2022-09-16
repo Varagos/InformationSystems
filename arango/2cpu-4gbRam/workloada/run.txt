@@ -493,3 +493,72 @@ threads=1024, operation=2000000
 [UPDATE], 99thPercentileLatency(us), 408319
 [UPDATE], Return=OK, 99976
 [UPDATE], Return=ERROR, 715
+
+
+
+
+
+Sum up --------------------------------------
+
+[OVERALL], Throughput(ops/sec), 876.4241893076249
+[READ], AverageLatency(us), 865.9262948207171
+[UPDATE], AverageLatency(us), 1046.9839357429719
+--------------------------------------------------------
+[OVERALL], Throughput(ops/sec), 1329.4265917224582
+[READ], AverageLatency(us), 593.60822991875
+[UPDATE], AverageLatency(us), 902.224651086596
+
+--------------------------------------------------------------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 3603.6036036036035
+[READ], AverageLatency(us), 456.13826940231934
+[UPDATE], AverageLatency(us), 582.40217939663
+
+
+----------------------------------------------------------
+[OVERALL], Throughput(ops/sec), 5385.029617662897
+[READ], AverageLatency(us), 470.35251941844257
+[UPDATE], AverageLatency(us), 577.3306200381871
+----------------------------------------
+[OVERALL], Throughput(ops/sec), 6782.7266561157585
+[READ], AverageLatency(us), 492.0145885035884
+[UPDATE], AverageLatency(us), 609.7382712774776
+------------------------
+threads=5
+
+[OVERALL], Throughput(ops/sec), 8127.878623679219
+[READ], AverageLatency(us), 501.8851096498548
+[UPDATE], AverageLatency(us), 670.1570757388957
+
+------------------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 10145.417653026716
+[READ], AverageLatency(us), 826.364684385382
+[UPDATE], AverageLatency(us), 1031.3714792859773
+--------------------------------------------------------------------
+threads = 40
+
+[OVERALL], Throughput(ops/sec), 12062.726176115802
+[READ], AverageLatency(us), 2960.2431585613813
+[UPDATE], AverageLatency(us), 3279.2962419064147
+
+-----------------------------------------
+[OVERALL], Throughput(ops/sec), 11995.441732141786
+[READ], AverageLatency(us), 9961.411888432553
+[UPDATE], AverageLatency(us), 10787.012477126944
+
+------------------------------------------------------------------
+[OVERALL], Throughput(ops/sec), 12592.872434202241
+[READ], AverageLatency(us), 18326.924343127524
+[UPDATE], AverageLatency(us), 20565.58581208215
+
+
+-----------------------------------------------
+[OVERALL], Throughput(ops/sec), 10903.341874284468
+[READ], AverageLatency(us), 41954.31990507089
+[UPDATE], AverageLatency(us), 44884.36653418443
+
+----------------------------------------
+[OVERALL], Throughput(ops/sec), 11581.446522670682
+[READ], AverageLatency(us), 78930.32361618786
+[UPDATE], AverageLatency(us), 85810.53894934784

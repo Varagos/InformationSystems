@@ -170,3 +170,49 @@
 [UPDATE], 95thPercentileLatency(us), 503807
 [UPDATE], 99thPercentileLatency(us), 681471
 [UPDATE], Return=OK, 40087
+
+
+
+
+
+
+
+
+
+
+----- Sum up
+
+[OVERALL], RunTime(ms), 6705
+[OVERALL], Throughput(ops/sec), 149.14243102162564
+[READ], AverageLatency(us), 1938.1377952755906
+[UPDATE], AverageLatency(us), 4867.890243902439
+
+---------------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 969.4619486185168
+[READ], AverageLatency(us), 9219.904071499503
+[UPDATE], AverageLatency(us), 20091.51993957704
+
+---------------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 1476.178174705687
+[READ], AverageLatency(us), 36330.970972423806
+[UPDATE], AverageLatency(us), 40452.086917428445
+
+--------------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 1526.7175572519084
+[READ], AverageLatency(us), 51128.76836892912
+[UPDATE], AverageLatency(us), 92816.95851451992
+----------------------------------------------------
+
+[OVERALL], Throughput(ops/sec), 1378.5735210490946
+[READ], AverageLatency(us), 406990.04582466866
+[UPDATE], AverageLatency(us), 198836.2408760945
+
+
+(149, 4.867)
+(969, 20.091)
+(1476, 40.452)
+(1526,92.816)
+(1378,19.8836)
