@@ -158,9 +158,22 @@ H Riak χρησιμοποιείται ως ένα eventually consistent σύστ
 
 \subsection{Docker}
 
-\section{περιγραφή των αποτελεσμάτων και των συμπερασμάτων της εργασίας}
 
-\subsection{Workload a}    
+\section{Περιγραφή των αποτελεσμάτων και των συμπερασμάτων της εργασίας}
+
+Χρησιμοποιήθηκαν workloads από το core package του ycsb. Αυτά έχουν οριστεί ανάλογα με τι εντολές θα εκτελεστούν και με σε τι ποσοστό η κάθε μία αλλά και με ποιόν τρόπο θα γίνεται η επιλογή ποιο record θα γίνει read και ποιο write. Τα Workloads Α και B που βάλαμε στα DBMS επιλέγουν τα records σύμφωνα με την Zipfian κατανομή και περιλαμβάνουν λειτουργίες:
+\begin{itemize}
+\item 
+Workload A: 50/100 Read - 50/100 Update
+\item 
+Workload A: 95/100 Read - 5/100 Update (Heavy Read)
+\end{itemize}
+
+
+\subsection{Workload A}    
+
+Αρχικά εξετάζουμε πως ανταποκρίνονται οι ArangoDB και Riad στο Workload A το οποίο περιλαμβάνει 50/100 Reads, 50/100 Updates.  Μία εφαρμογή τέτοιου workload αποτελούν τα session stores πχ. Cookies ενός browser.  Στα διαγράμματα παρουσιάζεται η καθυστέρηση (latency) συναρτήσει του throughput αρχικά για τα Reads και έπειτα για τα  Updates του Workload A. Σε κάθε περίπτωση αυξάναμε το δυνατό throughput μέχρις ότου παρατηρούσαμε ότι σταματούσε να αυξάνεται. Παρατηρούμε ότι σε όλα τα συστήματα, όσο αυξάνουμε το δυνατό throughput τόσο ανεβαίνει και το latency. Το καλύτερο throughput το πέτυχε η ArangoDB και το μικρότερο latency και στην περίπτωση των Reads και στην περίπτωση των updates. 
+
 
 This workload has a mix of 50/50 reads and writes. An application example is a session store 
 recording recent actions. Updates in this workload do not presume you read the original record first. 
@@ -252,7 +265,9 @@ in order to reconcile what the final record should look like, but not all do.
     \end{tikzpicture}
 
     
-\subsection{Workload b}    
+\subsection{Workload b}
+    To Workload B είναι heavy Read (95/100 Read - 5/100 Updates) και μία εφαρμογή του είναι η προσθήκη ετικετών σε φωτογραφίες (photo tagging) όπου η προσθήκη tag είναι ένα Update όμως κυρίως είναι η ανάγνωση ετικετών. Πάλι η ArangoDB είχε μεγαλύτερο throughput και μικρότερο latency. To μέγιστο throughput της ArangoDB ήταν λίγο καλύτερο στην περίπτωση του Workload A από το Workload B.
+
 %Third Diagram Workload b
 %  Read s
 \begin{tikzpicture}
