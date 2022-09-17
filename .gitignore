@@ -3,3 +3,6 @@ venv/
 
 /creds*
 vms.png
+/report/*
+!/report/report.tex
+!/report/conference_101719.tex
