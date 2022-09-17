@@ -96,7 +96,7 @@ for you.
 
 Ωστόσο, η παραδοσιακή εφαρμογή αυτής της προσέγγισης θα οδηγήσει κάποιον στη χρήση πολλαπλών βάσεων δεδομένων στο ίδιο project. Μπορεί να οδηγήσει σε κάποιες λειτουργικές τριβές (πιο περίπλοκη ανάπτυξη, πιο συχνές αναβαθμίσεις) καθώς και σε ζητήμα τα συνέπειας και συντήρησης των ίδων δεδομένων πολλαπλές φορές.
 
-Ποια ειναι τα κύριεα χαρακτηριστικά της ArangoDB;
+Ποια ειναι τα κύρια χαρακτηριστικά της ArangoDB;
 \begin{itemize}
     \item 
     Δυνατότητα για χρησιμοποίηση διαφορετικών τεχνολογιών αποθήκευσης, που ταιριάζουν καλύτερα με τον τρόπο που χρησιμοποιούνται τα δεδομένα από διαφορετικά στοιχεία της εφαρμογής.
@@ -111,7 +111,25 @@ for you.
 ArangoDB: A distributed open-source database with a flexible data model for documents, graphs, and key-values. A distributed free and open-source database with a flexible data model for documents, graphs, and key-values. Build high performance applications using a convenient SQL-like query language or JavaScript extensions;
 
 \subsection{Riak KV}
- A distributed, decentralized data storage system. Riak is a distributed database designed to deliver maximum data availability by distributing data across multiple servers. As long as your client can reach one Riak server, it should be able to write data. In most failure scenarios, the data you want to read should be available, although it may not be the most up-to-date version of that data.
+
+ Η Riak είναι μια κατανεμημένη βάση δεδομένων που έχει σχεδιαστεί για να παρέχει τη μέγιστη διαθεσιμότητα δεδομένων, διανέμοντας τα δεδομένα σε πολλούς διακομιστές. Εφόσον ο client μπορεί να φτάσει σε έναν διακομιστή Riak, θα πρέπει να μπορεί να γράψει δεδομένα.
+
+H Riak χρησιμοποιείται ως ένα eventually consistent σύστημα, καθώς τα δεδομένα σε read operations θα πρέπει να παραμένουν διαθέσιμα στα περισσότερα σενάρια αποτυχίας, αν και μπορεί να μην είναι η πιο ενημερωμένη έκδοση αυτών των δεδομένων τη δεδομένη στιγμή, λόγω του eventual consistency.
+
+Ποια ειναι τα κύρια χαρακτηριστικά της Riak KV;
+\begin{itemize}
+    \item 
+    Διαθεσιμότητα - H Riak γράφει και διαβάζει από πολλούς διακομιστές για να προσφέρει διαθεσιμότητα δεδομένων ακόμα και όταν το υλικό ή το ίδιο το δίκτυο αντιμετωπίζει συνθήκες αποτυχίας.(π.χ. network partitioning, node failure, κλπ.)
+    
+    \item 
+    Επεκτασιμότητα - Η Riak διανέμει αυτόματα τα δεδομένα στο cluster και αποφέρει σχεδόν γραμμική αύξηση απόδοσης καθώς προστίθενται κόμβοι στο cluster.
+
+    \item 
+    Τα αιτήματά δεν είναι όμηρα ενός συγκεκριμένου διακομιστή στο cluster που μπορεί να είναι ή να μην είναι διαθέσιμο, αφού δεν υπάρχει master κόμβος. Η Riak επιτρέπει την ανάγνωση και την εγγραφή σε οποιοδήποτε διαθέσιμο κόμβο στο cluster.
+\end{itemize}
+Το απλό μοντέλο δεδομένων της Riak, που αποτελείται από κλειδιά και τιμές ως ατομικά του στοιχεία, σημαίνει ότι τα δεδομένα πρέπει να ειναι denormalized για να είναι το σύστημά εύλογα αποδοτικό. Αντίστοιχα, εάν η εφαρμογή απαιτεί υψηλό φορτίο ερωτημάτων με range εκτός από την αναζήτηση κλειδιού/τιμής - λειτουργίες τύπου SQL — h Riak δεν θα είναι τόσο αποτελεσματική όσο άλλες βάσεις δεδομένων.
+
+
 
 \subsection{Docker}
 
