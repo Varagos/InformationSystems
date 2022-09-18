@@ -13,6 +13,7 @@
 \usepackage{pgfplots}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{hyperref} 
 \lstset{basicstyle=\ttfamily,
   showstringspaces=false,
   commentstyle=\color{red},
@@ -151,6 +152,67 @@ bin/ycsb.sh run basic -P workloads/workloada
 \end{lstlisting}
 
 
+
+\subsection{Εγκατάσταση Docker}
+Και για τις 2 βάσεις δεδομένων χρησιμοποίηθηκαν τα official docker images από το docker hub, για αυτό χρειάζεται να εγκαταστήσουμε το 
+\href{https://docs.docker.com/engine/install/ubuntu/}{docker}
+στα 2 VMs. 
+
+
+\subsection{Εγκατάσταση Riak}
+
+\begin{lstlisting}[language=bash,caption={Install riak}
+    ,    basicstyle=\small %or \tiny or \footnotesize etc.
+]
+
+# Bootstrap Riak-kv
+docker run --name=riak -d -p 8087:8087 -p 8098:8098 \
+basho/riak-kv
+
+docker exec -it riak sh
+vi /etc/riak/riak.conf
+# Set storage_backend = leveldb
+# Close container shell
+docker restart riak
+
+# Create bucket with right schema
+docker exec -it riak sh
+riak-admin bucket-type create ycsb \
+'{"props":{"allow_mult":"false"}}'
+riak-admin bucket-type activate ycsb
+
+
+\end{lstlisting}
+Στο ycsb-vm φτιάχνουμε ένα riak.properties αρχείο με τα παρακάτω περιεχόμενα.
+\begin{lstlisting}[language=bash,caption={riak.properties}
+    ,    basicstyle=\small %or \tiny or \footnotesize etc.
+]
+## Replace with ip of riak-vm
+riak.hosts=127.0.0.3
+riak.port=8098
+riak.bucket_type=ycsb
+riak.strong_consistency=false
+riak.debug=true # or false
+\end{lstlisting}
+
+Τώρα μπορούμε να χτυπήσουμε το riak-vm με το ycsb
+\begin{lstlisting}[language=bash
+    ,    basicstyle=\small %or \tiny or \footnotesize etc.
+]
+# Load and run a YCSB workload for Riak
+./bin/ycsb load riak -P workloads/workloada \
+-P ./path/to/propsFile
+
+./bin/ycsb run riak -P workloads/workloada \
+-P ./path/to/propsFile
+
+\end{lstlisting}
+
+
+
+
+
+\subsection{Εγκατάσταση ArangoDB}
 
 \section{Περιγραφή της υποδομής και του software που χρησιμοποίηθηκε}
 
