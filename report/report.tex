@@ -225,6 +225,41 @@ docker run -e ARANGO_NO_AUTH=1 -p 8529:8529 -d \
 --name test-arangodb arangodb
 \end{lstlisting}
 
+\subsection{Στήσιμο πειραμάτων}
+The "load" is to create data in the database. The "run" is to execute statements on the data available in the database.
+
+A "load" is insert only. A "run" may include reads, inserts, and updates depending on the properties of your workload.
+Στο ycsb υπάρχουν 2 φάσεις, η load και η run. Η load είναι για να φορτώσουμε τα 
+δεδομένα στη βάση δεδομένων, η run είναι για να τα διαβάσουμε και να τα 
+ενημερώσουμε. Τα benchmarks τα παίρνουμε από τις αποδόσεις των βάσεων δεδομένων
+στη run φάση.
+Για να εξασφαλίσουμε την ομοιόμορφη εκτέλεση των benchmarks, είναι αναγκαίο πριν 
+από κάθε εκτέλεση να κάνουμε drop τη βάση δεδομένων και να την φορτώσουμε ξανά με load.
+
+Στην arangodb μπορούμε να θέσουμε το option -p arangodb.dropDBBeforeRun=true όταν τρέχουμε 
+την εντολή load. Αυτό θα κάνει drop τη βάση δεδομένων και θα την φορτώσει ξανά.
+Αντίθετα στην riak δεν υπάρχει τέτοιο option, οπότε πρέπει να κάνουμε drop τη βάση
+χειροκίνητα. Αυτό το κάνουμε με τα παρακάτων βήματα στο vm της riak σύμφωνα με τα 
+\href{https://docs.riak.com/riak/kv/2.1.4/using/cluster-operations/backing-up/#os-specific-directory-locations}{Riak data directories}
+.
+\begin{lstlisting}[language=bash
+    ,    basicstyle=\small %or \tiny or \footnotesize etc.
+]
+# Connect to riak-vm
+docker exec -it riak sh
+riak stop
+# Remove data directory
+rm -rf 	/var/lib/riak/leveldb
+riak start
+
+# Check file after restart (num of Lines)
+wc -l /var/lib/riak/leveldb
+# Should output 0
+# Exit docker container shell
+docker restart riak
+\end{lstlisting}
+
+
 \section{Περιγραφή της υποδομής και του software που χρησιμοποίηθηκε}
 
 \subsection{Okeanos}
