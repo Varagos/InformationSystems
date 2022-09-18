@@ -617,9 +617,45 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
     \addlegendentry{4CPU, 8GB RAM}
     \end{axis}
     \node[above,font=\large\bfseries] at (current bounding box.north) {Heavy Read - Workload B};
-    
         \end{tikzpicture}
 
+\subsection{Latency}
+Η μέτρηση της απόδοσης δεν είναι αρκετή – είναι επίσης σημαντικό να ληφθεί υπόψη 
+η καθυστέρηση(latency) των λειτουργιών. Η μέση καθυστέρηση που μετράται σε πολλές 
+λειτουργίες δεν είναι η καλύτερη μέτρηση. Οι προγραμματιστές που θέλουν να 
+εξασφαλίσουν μια σταθερά εξαιρετική εμπειρία χαμηλής καθυστέρησης ανησυχούν 
+για τα ερωτήματα με τη χειρότερη απόδοση στην ανάπτυξή τους. Τα ερωτήματα 
+υψηλού λανθάνοντος χρόνου μετρώνται στο 95ο και 99ο εκατοστημόριο – όπου ο 
+παρατηρούμενος λανθάνοντας χρόνος είναι χειρότερος από το 95% ή το 99% όλων των άλλων καθυστερήσεων. (Κάποιος θα μπορούσε να υποστηρίξει ότι δεν είναι επαρκώς ακριβείς – οι περισσότερες συνεδρίες ιστού περιλαμβάνουν εκατοντάδες αιτήματα, και επομένως είναι πολύ πιθανό οι περισσότεροι χρήστες να αντιμετωπίσουν καθυστέρηση στο 99ο εκατοστημόριο κατά τη διάρκεια της συνεδρίας τους.)
+
+
+\begin{tikzpicture}
+ 
+    \begin{axis} [ybar,height=6cm,width=8cm,
+        ylabel=Latench (ms),
+        xmin={0}, xmax={3.3},
+        xtick={0.7, 2},
+        xticklabels={95th percentile, 99th percentile},
+        ymin=0, ymax=500,
+        ytick={100, 300, 500},
+        yticklabels={100, 300,  500}   % <---
+        ]
+    \addplot[color=green, fill=green ] coordinates {
+        (0.7, 149.759) 
+        (2, 367.871) 
+        };
+
+    \addlegendentry{ArangoDB}
+    \addplot[color=orange, fill=orange]  coordinates {(0.7,191.871) (2,228.607)};
+    \addlegendentry{Riak}
+
+    \end{axis}
+        \node[above,font=\large\bfseries] at (current bounding box.north) {Latencies for workflow b reads};
+\end{tikzpicture}
+
+
+
+\subsection{Συμπεράσματα}
 
 Όπως συμβαίνει με κάθε συγκριτική αξιολόγηση, η δυνατότητα εφαρμογής των 
 αποτελεσμάτων σε μια εφαρμογή δεν είναι πάντα σαφής. Οι περιπτώσεις χρήσης για 
@@ -640,10 +676,7 @@ ArangoDB και Riak-KV είναι ποικίλες και είναι σημαν
         ytick={2000, 10000, 20000},
         yticklabels={2000, 10000, 20000 }   % <---
         ]
-    \addplot[color=green, fill=green ] coordinates{
-        (0.7,12592) 
-        (2,17105) 
-    };
+    \addplot[color=green, fill=green ] coordinates {(0.7,12592) (2,17105)};
 
     \addlegendentry{ArangoDB}
     \addplot[color=orange, fill=orange]  coordinates {(0.7,1526) (2,2073)};
