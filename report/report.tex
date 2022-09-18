@@ -194,6 +194,10 @@ riak.bucket_type=ycsb
 riak.strong_consistency=false
 riak.debug=true # or false
 \end{lstlisting}
+Θα λειτουργήσουμε τη riak σε mode eventual-consistency για να μην υπάρχει 
+καθυστέρηση στην επικοινωνία με τη βάση δεδομένων, οπότε βάζουμε false 
+στο riak.strong-consistency.
+Το riak.debug είναι για να δούμε τα logs της βάσης δεδομένων ή τυχόν σφάλματα.
 
 Τώρα μπορούμε να χτυπήσουμε το riak-vm με το ycsb
 \begin{lstlisting}[language=bash
@@ -213,6 +217,13 @@ riak.debug=true # or false
 
 
 \subsection{Εγκατάσταση ArangoDB}
+
+\begin{lstlisting}[language=bash
+    ,    basicstyle=\small %or \tiny or \footnotesize etc.
+]
+docker run -e ARANGO_NO_AUTH=1 -p 8529:8529 -d \
+--name test-arangodb arangodb
+\end{lstlisting}
 
 \section{Περιγραφή της υποδομής και του software που χρησιμοποίηθηκε}
 
