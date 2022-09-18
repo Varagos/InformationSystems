@@ -14,6 +14,8 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{hyperref} 
+\usepackage{pgfplots}
+
 \lstset{basicstyle=\ttfamily,
   showstringspaces=false,
   commentstyle=\color{red},
@@ -456,7 +458,7 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
         xticklabels={1, 2, 4, 6, 8, 10, 12, 14},
         ytick={0,10,...,100}
                 ]
-    \addplot[smooth,mark=*,blue] plot coordinates {
+    \addplot[smooth,mark=*,green] plot coordinates {
         (987,0.9)
         (1957,1.69)
         (2909,0.96)
@@ -501,7 +503,7 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
         xticklabels={1, 2, 4, 6, 8, 10, 12, 14},
         ytick={0,10,...,100}
                 ]
-    \addplot[smooth,mark=*,blue] plot coordinates {
+    \addplot[smooth,mark=*,green] plot coordinates {
         (987,1.26)
         (1957,6.66)
         (2909,1.214)
@@ -551,7 +553,7 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
         xticklabels={1,2,3, 4},   % <---
         ytick={0,20,...,150}
                 ]
-    \addplot[smooth,mark=*,blue] plot coordinates {
+    \addplot[smooth,mark=*,green] plot coordinates {
         (149, 4.867)
         (969, 20.091)
         (1378,19.8836)
@@ -590,7 +592,7 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
         xticklabels={1,2, 3, 4, 5 },   % <---
         ytick={0,10,...,100}
                 ]
-    \addplot[smooth,mark=*,blue] plot coordinates {
+    \addplot[smooth,mark=*,green] plot coordinates {
         (466.8,1.69)
         (950.9,4.7)
         (1821,10.98)
@@ -618,6 +620,7 @@ Workload A: 95/100 Read - 5/100 Update (Heavy Read)
     
         \end{tikzpicture}
 
+
 Όπως συμβαίνει με κάθε συγκριτική αξιολόγηση, η δυνατότητα εφαρμογής των 
 αποτελεσμάτων σε μια εφαρμογή δεν είναι πάντα σαφής. Οι περιπτώσεις χρήσης για 
 ArangoDB και Riak-KV είναι ποικίλες και είναι σημαντικό να χρησιμοποιηθούν
@@ -625,6 +628,30 @@ ArangoDB και Riak-KV είναι ποικίλες και είναι σημαν
 χρησιμοποιηθεί για την ανάπτυξή της.  
 Μόνο οι εφαρμογές σας, τα δεδομένα σας και η υποδομή σας μπορούν να σας πουν 
 τι πρέπει να γνωρίζετε και ποια τεχνολογία να επιλέξετε. 
+
+\begin{tikzpicture}
+ 
+    \begin{axis} [ybar,height=6cm,width=8cm,
+        ylabel=Throughput (ops/sec),
+        xmin={0}, xmax={3.3},
+        xtick={0.7, 2},
+        xticklabels={50/50 read-write, 95/5 read-write},
+        ymin=0, ymax=20000,
+        ytick={1500,2500, 10000, 20000},
+        yticklabels={1500,2500, 10000, 20000 }   % <---
+        ]
+    \addplot[color=green, fill=green ] coordinates{
+        (0.7,12592) 
+        (2,17105) 
+    };
+
+    \addlegendentry{ArangoDB}
+    \addplot[color=orange, fill=orange]  coordinates {(0.7,1526) (2,2073)};
+    \addlegendentry{Riak}
+
+    \end{axis}
+\end{tikzpicture}
+
 
 Το συμπέρασμα από τα test που πραγματοποίηθηκαν είναι οτι η ArangoDB είναι
 αρκετά γρήγορη για να χρησιμοποιηθεί σε μια εφαρμογή που χρειάζεται να αποθηκεύει
